@@ -1,0 +1,56 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.5'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.hj'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+    
+    
+}
+
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-batch'
+	implementation 'org.springframework.boot:spring-boot-devtools'
+	// implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.seleniumhq.selenium:selenium-java'
+	implementation 'org.apache.tika:tika-core:2.9.2'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.2'
+	implementation 'com.google.cloud:google-cloud-texttospeech:2.45.0'
+	implementation 'com.google.apis:google-api-services-youtube:v3-rev20240514-2.0.0'
+	implementation 'com.google.http-client:google-http-client-jackson2:1.44.2'
+	implementation 'com.google.oauth-client:google-oauth-client-jetty:1.36.0'
+	implementation 'net.bramp.ffmpeg:ffmpeg:0.8.0'
+	implementation 'com.amazonaws:aws-java-sdk-s3:1.12.767'
+	implementation 'com.twelvemonkeys.imageio:imageio-webp:3.11.0'
+
+
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'org.hsqldb:hsqldb'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.32'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.batch:spring-batch-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
